@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "daonuser",
+    "password": "daonpassword",
+    "database": "piction",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "daonuser",
+    "password": "daonpassword",
+    "database": "piction",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "daonuser",
+    "password": "daonpassword",
+    "database": "piction",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
