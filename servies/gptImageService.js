@@ -1,10 +1,10 @@
 const { default: axios } = require("axios");
 const { Diary } = require("../models");
+require("dotenv").config();
 const OpenAI = require("openai");
 
-const apiKey = "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";
 const openai = new OpenAI({
-  apiKey: apiKey,
+  apiKey: process.env.API_KEY,
 });
 const url = "https://openapi.naver.com/v1/papago/n2mt";
 
