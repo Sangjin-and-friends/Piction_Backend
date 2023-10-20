@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
 router.post("/:date", async (req, res) => {
   return await diaryService.getOneDiary(req.params.date, req.body.userId, res);
 });
-router.get("/calendar", async (req, res) => {
+router.post("/calendar", async (req, res) => {
   return await diaryService.getDiaryforCalendar(req.body, res);
 });
 
