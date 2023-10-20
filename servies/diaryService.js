@@ -59,30 +59,26 @@ class DiaryService {
 
   async getDiaryforCalendar(req, res) {
     const { date, userId } = req;
-    if (!date) return res.status(400).json("Bad Request");
-
-    const isValidDate = /^\d{4}-\d{2}$/.test(date);
     console.log(date);
-    console.log(isValidDate);
-    if (!isValidDate) {
-      return res.status(400).json("Invalid Date Format");
-    }
+    if (!date) return res.status(400).json("Bad Request");
+    try {
+      const [year, month] = date.split("-");
+      const startDate = new Date(year, month - 1, 1);
+      const endDate = new Date(year, month, 0, 23, 59, 59);
 
-    const startDate = new Date(`${date}-01T00:00:00.000Z`);
-    const endDate = new Date(
-      new Date(startDate).setMonth(startDate.getMonth() + 1) - 1
-    );
-
-    const diaries = await Diary.findAll({
-      where: {
-        userId: userId,
-        date: {
-          [Op.between]: [startDate, endDate],
+      const diaries = await Diary.findAll({
+        where: {
+          userId: userId,
+          date: {
+            [Op.between]: [startDate, endDate],
+          },
         },
-      },
-    });
+      });
 
-    return res.status(200).json(diaries);
+      return res.status(200).json(diaries);
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 
