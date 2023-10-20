@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   return await diaryService.save(req.body, res);
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:date", async (req, res) => {
   return await diaryService.getOneDiary(req.params.date, req.body.userId, res);
 });
 
