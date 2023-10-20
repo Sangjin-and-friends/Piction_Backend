@@ -52,6 +52,8 @@ class DiaryService {
       },
     });
 
+    console.log(diary);
+
     return res.status(200).json(diary);
   }
 
