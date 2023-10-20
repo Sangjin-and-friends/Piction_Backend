@@ -1,33 +1,42 @@
 const { DataTypes, sequelize } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  const Diary = sequelize.define("Diary", {
-    diaryId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      default: 1,
-    },
+  const Diary = sequelize.define(
+    "Diary",
+    {
+      subject: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
 
-    subject: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+      contents: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
 
-    contents: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+      imageURL: {
+        type: DataTypes.STRING(2000),
+        allowNull: false,
+      },
 
-    imageURL: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+      date: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      userId: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        allowNull: false,
+      },
 
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
+      emotions: {
+        type: DataTypes.JSON,
+      },
     },
-  });
+    {
+      tableName: "Diary",
+      timestamps: false,
+    }
+  );
   return Diary;
 };
