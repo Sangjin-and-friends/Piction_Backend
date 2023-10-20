@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      chat: {
+        type: DataTypes.JSON,
+        allowNull: true,
+      },
     },
     {
       tableName: "User",
