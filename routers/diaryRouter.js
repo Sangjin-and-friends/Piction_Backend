@@ -12,5 +12,8 @@ router.post("/", async (req, res) => {
 router.get("/:date", async (req, res) => {
   return await diaryService.getOneDiary(req.params.date, req.body.userId, res);
 });
+router.post("/calendar", async (req, res) => {
+  return await diaryService.getDiaryforCalendar(req.body, res);
+});
 
 module.exports = router;
