@@ -18,11 +18,6 @@ const sequelize = new Sequelize(
 const User = require("./User")(sequelize, Sequelize);
 const Diary = require("./Diary")(sequelize, Sequelize);
 
-Diary.belongsTo(User, {
-  foriegnKey: {},
-});
-User.hasMany(Diary);
-
 Object.values(db).forEach((model) => {
   if (model.associate) {
     model.associate(db);

@@ -14,8 +14,11 @@ class DiaryService {
           },
         },
       })
-    )
+    ) {
       return res.status(400).json("already exist");
+    }
+
+    console.log(new Date(date));
     try {
       const createdDiary = await Diary.create({
         subject,
